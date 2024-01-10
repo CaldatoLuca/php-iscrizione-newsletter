@@ -8,8 +8,20 @@ $result_text = "";
 //controllo se esiste la variabile email in GET
 if (isset($_GET['email'])) {
     $type_email = $_GET['email'];
-    echo $type_email;
+
+    //controllo se contiene . e @
+    if (strpos($type_email, '.') !== false && strpos($type_email, '@') !== false) {
+        $check = 'success';
+        $display = 'd-block';
+        $result_text = "La mail contiene un punto e una chiocciola";
+    } else {
+        $check = 'danger';
+        $display = 'd-block';
+        $result_text = "La mail non contiene un punto e una chiocciola";
+    }
 }
+
+
 
 
 ?>
