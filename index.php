@@ -1,5 +1,5 @@
 <?php
-include 'functions.php';
+include __DIR__ . '/functions.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

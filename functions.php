@@ -1,8 +1,6 @@
 <?php
 
-$check = '';
-$display = 'd-none';
-$result_text = '';
+include __DIR__ . '/variables.php';
 
 //funzione che controlla se la mail è corretta e restiruisce i valori per le classi alert (come array)
 function checkEmail($email)
@@ -25,7 +23,6 @@ function checkEmail($email)
 
     return $result;
 }
-
 //controllo se esiste la variabile email in GET
 if (isset($_GET['email'])) {
     $type_email = $_GET['email'];
