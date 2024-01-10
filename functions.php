@@ -1,6 +1,7 @@
 <?php
 
 include __DIR__ . '/variables.php';
+include __DIR__ . '/session.php';
 
 //funzione che controlla se la mail è corretta e restiruisce i valori per le classi alert (come array)
 function checkEmail($email)
@@ -23,12 +24,19 @@ function checkEmail($email)
 
     return $result;
 }
+
+
+
 //controllo se esiste la variabile email in GET
 if (isset($_GET['email'])) {
-    $type_email = $_GET['email'];
-    $result = checkEmail($type_email);
+    $_SESSION['type_email'] = $_GET['email'];
+    $result = checkEmail($_SESSION['type_email']);
 
     $check = $result['check'];
     $display = $result['display'];
     $result_text = $result['result_text'];
+
+    if ($check === 'success') {
+        header('Location: ./thankyou.php');
+    };
 }
