@@ -1,5 +1,10 @@
 <?php
-include __DIR__ . '/session.php';
+
+session_start();
+
+if (!isset($_SESSION['email'])) {
+    $_SESSION['email'] = '';
+}
 
 ?>
 
@@ -9,11 +14,12 @@ include __DIR__ . '/session.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Utente Registrato</title>
+    <title>Grazie</title>
 </head>
 
 <body>
-    <p><?php echo $_SESSION['type_email'] ?></p>
+    <h1>Grazie per esserti registrat*</h1>
+    <p>La tua email è <?php echo $_SESSION['email']; ?></p>
 </body>
 
 </html>
